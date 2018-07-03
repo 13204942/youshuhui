@@ -2,6 +2,30 @@ extends layout
 
 block content
 
-	div(class='row')
+	a(class='button btn btn-light' href='/') Home
+	
+	dib(class='row')
 		div(class='col')
-			h1 #{title}
+		div(class='col')
+
+			h1= title
+
+			form
+				div(class='form-group')
+					label Title
+					input(type='text' class='form-control' id='inputTitle' placeholder='Enter Title')
+				div(class='form-group')
+					label Location
+					input(type='text' class='form-control' id='inputLocation' placeholder='Where')
+				div(class='form-group')
+					label Date
+					input(type='text' class='form-control' id='inputDate' placeholder='e.g. 2018-07-03')
+				div(class='form-group')
+					label Time
+					input(type='text' class='form-control' id='inputTime' placeholder='e.g. 15:00')
+				div(class='form-group')
+					label Description
+					textarea(type='text' rows='5' class='form-control' id='inputDesc' placeholder='Description')
+				button(type='submit' class='btn btn-light') Submit
+
+		div(class='col')
