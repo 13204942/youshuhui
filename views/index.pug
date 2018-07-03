@@ -1,7 +1,26 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1 Youshuhui
+	p Welcome to Youshuhui
 
-  a(class='button btn btn-light' href='/signup') Signup
+	a(class='button btn btn-light' href='/signup') Signup
+
+	div(class='row')
+		div(class='md-auto')
+			table.table
+				thead
+					tr
+						th Title
+						th Location
+						th Date
+						th Time
+						th
+				tbody
+					each event in eventsList
+						tr
+							td= event.title
+							td= event.location
+							td= event.start_date
+							td= event.start_time
+							th: a(href='/') Info

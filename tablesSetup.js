@@ -12,13 +12,16 @@ db.serialize(function() {
 
 	// Drop tables if tables exist
 	//db.run("DROP TABLE if exists users");
+  db.run("DROP TABLE if exists events");
 
 	// Create new tables
   db.run("CREATE TABLE if not exists users (user_id integer PRIMARY KEY, username text, password text)");
+  db.run("CREATE TABLE if not exists events (event_id integer PRIMARY KEY, title NVARCHAR(100), description NVARCHAR(5000), location NVARCHAR(500), start_date DATE, start_time DATETIME)");
 
   // Insert data into table
   //db.run(`INSERT INTO users (username, password) VALUES (?)`);
 
+  /*
   db.run(`INSERT INTO users (username, password) VALUES (?,?)`, ['admin','pwd'], function(err) {
     if (err) {
       return console.log(err.message);
@@ -26,6 +29,7 @@ db.serialize(function() {
     // get the last insert id
     console.log(`A row has been inserted with rowid ${this.lastID}`);
   });
+  */
 
   // Select data from table to validate
   db.each("SELECT rowid AS id, username, password FROM users", function(err, row) {
