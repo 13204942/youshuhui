@@ -8,7 +8,7 @@ let db = new sqlite3.Database('./db/youshuhui.sqlite', sqlite3.OPEN_READWRITE, (
   if (err) {
     console.error(err.message);
   }
-  console.log('Connected to the chinook database.');
+  console.log('Connected to the youshuhui database.');
 });
 
 /* GET home page. */

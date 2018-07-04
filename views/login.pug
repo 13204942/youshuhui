@@ -1,0 +1,31 @@
+extends layout
+
+block content
+
+	a(class='button btn btn-light' href='/') Home
+	
+	dib(class='row')
+		div(class='col')
+		div(class='col')
+
+			h1 #{title}
+
+			script.
+				if (message.length > 0)
+					div(class="alert alert-danger")
+						p= message
+
+			form(action='/login' method='post')
+				div(class='form-group')
+					label User Name
+					input(type='text' class='form-control' id='inputUserName' placeholder='Enter user name')
+				div(class='form-group')
+					label Password
+					input(type='password' class='form-control' id='inputPassword' placeholder='Enter Password')
+				p 
+					| Need an account ? 
+					a(href='/signup') Signup
+					|  now
+				button(type='submit' class='btn btn-light') Login
+
+		div(class='col')

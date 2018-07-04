@@ -10,12 +10,19 @@ block content
 
 			h1 #{title}
 
-			form
+			form(action='/signup' method='post')
 				div(class='form-group')
 					label User Name
 					input(type='text' class='form-control' id='inputUserName' placeholder='Enter user name')
 				div(class='form-group')
 					label Password
 					input(type='password' class='form-control' id='inputPassword' placeholder='Password')
+				div(class='form-group')
+					label Confirm Password
+					input(type='password' class='form-control' id='inputConPassword' placeholder='Passwords')
+				p 
+					| Already have an account ? 
+					a(href='/login') Login
+					|  now
 				button(type='submit' class='btn btn-light') Submit
 		div(class='col')

@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+//var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('signup', {title: "Signup Page"});
+  res.render('signup', {title: "Signup"});
 });
+
 
 module.exports = router;
