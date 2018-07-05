@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-//var passport = require('passport');
+var passport = require('passport');
 var flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
@@ -21,16 +21,18 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cookieParser());
 app.use(session({ 
-	resave: false,
+	resave: true,
 	saveUninitialized: true,
-	secret: 'keyboard cat',
+	secret: 'secret cat',
 	cookie: { maxAge: 60000 }
 })); 
 app.use(flash()); // use connect-flash for flash messages stored in session
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Bootstrap

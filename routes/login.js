@@ -11,7 +11,7 @@ let db = new sqlite3.Database('./db/youshuhui.sqlite', sqlite3.OPEN_READWRITE, (
   console.log('Connected to the youshuhui database.');
 });
 
-passport.use(new LocalStrategy({
+passport.use('local-login', new LocalStrategy({
 	passReqToCallback: true  // request object isn't passed to the strategy callback by default, you need to set the passReqToCallback option
 }, function(req, username, password, done) {
   db.get('SELECT username, user_id FROM users WHERE username = ? AND password = ?', username, password, function(err, row) {
@@ -37,16 +37,13 @@ passport.deserializeUser(function(id, done) {
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('login', { title: "Login" });
+  res.render('login', { title: "Login", message: req.flash('loginMessage') });
 });
 
-router.post('/',  function(req,res,next){
-	passport.authenticate('local', { 
-		successRedirect: '/',
-		failureRedirect: '/login',
-		failureFlash : true // allow flash messages
-	})
-	(req, res, next);
-});
+router.post('/', passport.authenticate('local-login', { 
+	successRedirect: '/',
+	failureRedirect: '/login',
+	failureFlash : true // allow flash messages
+}));
 
 module.exports = router;

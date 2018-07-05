@@ -10,18 +10,16 @@ block content
 
 			h1 #{title}
 
-			script.
-				if (message.length > 0)
-					div(class="alert alert-danger")
-						p= message
+			-if(message != '')
+				.alert.alert-danger #{message}
 
 			form(action='/login' method='post')
 				div(class='form-group')
 					label User Name
-					input(type='text' class='form-control' id='inputUserName' placeholder='Enter user name')
+					input(type='text' class='form-control' name='username' placeholder='Enter user name')
 				div(class='form-group')
 					label Password
-					input(type='password' class='form-control' id='inputPassword' placeholder='Enter Password')
+					input(type='password' class='form-control' name='password' placeholder='Enter Password')
 				p 
 					| Need an account ? 
 					a(href='/signup') Signup
