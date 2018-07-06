@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
+var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,6 +14,11 @@ var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
 var eventsRouter = require('./routes/events');
 var newEventRouter = require('./routes/newEvent');
+
+// configuration 
+var configDB = require('./config/database.js');
+// connect to our database
+mongoose.connect(configDB.url, { useNewUrlParser: true }); // connect to our database
 
 var app = express();
 
