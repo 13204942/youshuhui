@@ -1,4 +1,4 @@
-// models/user.js
+// models/User.js
 // load the things we need
 var mongoose = require('mongoose');
 
@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var userSchema = mongoose.Schema({
   local : {
     username  : String,
-    password  : String,
+    password  : String
   }
 });
 

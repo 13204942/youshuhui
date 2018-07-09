@@ -41,8 +41,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Bootstrap
+//Bootstrap, Moment, Datetimepicker
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+app.use('/moment', express.static(__dirname + '/node_modules/moment/min/'));
+app.use('/datetimepicker', express.static(__dirname + '/node_modules/eonasdan-bootstrap-datetimepicker/build/'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
