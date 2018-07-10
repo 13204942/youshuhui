@@ -10,19 +10,21 @@ block content
 
 			h1= title
 
-			form
+			p= message
+
+			form(action='/newEvent' method='post')
 				div(class='form-group')
 					label Title
-					input(type='text' class='form-control' id='inputTitle' placeholder='Enter Title')
+					input(type='text' class='form-control' name='title' placeholder='Enter Title')
 				div(class='form-group')
 					label Location
-					input(type='text' class='form-control' id='inputLocation' placeholder='Where')
+					input(type='text' class='form-control' name='location' placeholder='Where')
 				div(class='form-group')
 					label Datetime
-					input(type='text' class='form-control' id='datetime')
+					input(type='text' class='form-control' name='datetime' id='datetime')
 				div(class='form-group')
 					label Description
-					textarea(type='text' rows='5' class='form-control' id='inputDesc' placeholder='Description')
+					textarea(type='text' rows='5' class='form-control' name='description' placeholder='Description')
 				button(type='submit' class='btn btn-light') Submit
 
 		div(class='col')
