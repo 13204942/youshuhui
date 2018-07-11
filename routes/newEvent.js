@@ -15,11 +15,11 @@ router.post('/', function(req, res, next) {
 		if(err) {
 			req.flash('errorMsg', err.message);
 			res.render('newEvent', {title: "New Event", message: req.flash('errorMsg')});
-			console.log('User not saved!');
+			console.log('Event not saved!');
 		};
-		req.flash('successMsg', 'User saved successfully!')
+		req.flash('successMsg', 'Event created successfully!')
 		res.render('newEvent', {title: "New Event", message: req.flash('successMsg')});
-		console.log('User saved successfully!');
+		console.log('Event created successfully!');
 	});
 });
 
