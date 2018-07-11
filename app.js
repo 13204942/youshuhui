@@ -8,6 +8,7 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var moment = require('moment');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -43,6 +44,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// import momentjs
+app.locals.moment = moment;
 
 //Bootstrap, Moment, Datetimepicker
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));

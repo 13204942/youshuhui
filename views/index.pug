@@ -23,6 +23,6 @@ block content
 						tr
 							td= event.title
 							td= event.location
-							td= event.start_date
-							td= event.start_time
+							td= moment(event.datetime).format('YYYY/MM/DD')
+							td= moment(event.datetime).format('hh:mm:ss')
 							th: a(href='/') Info
